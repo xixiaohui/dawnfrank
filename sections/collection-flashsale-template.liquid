@@ -1,16 +1,58 @@
 
-<h1>Flash sale</h1>
+{%- assign limit = 16 -%}
+{% paginate collection.products by limit %}
 
-{%  schema %}
+{% capture title %}
+    <div>
+        <a href="">
+            <img src="{{ section.settings.banner| img_url:'600x'}}">
+        </a>
+    </div>
+{% endcapture%}
+
+<div class="flash">
+    {{ title }}
+    {% for product in collection.products %}
+
+        <div class="">
+            <a href="{{ product.url }}">
+                <img src="{{ product.featured_image | img_url: '600x' }}">
+            </a>
+            <div>
+                <p>{{ product.title }}<span>{{ product.price }} </span></p>
+            </div>
+            
+        </div>
+    {% endfor %}
+</div>
+
+{% endpaginate %}
+
+{% schema %}
 {
-    
+  "name": "Flash Sale",
+  "settings": [
+        {
+            "type":"text",
+            "id":"section_title",
+            "label":"Heading",
+            "default":"Quick link"
+        },
+        {
+            "type":"image_picker",
+            "id":"banner",
+            "label":"Banner"
+        }
+  
+  ]
 }
-{% endschema %}}
+{% endschema %}
 
 {% stylesheet %}
-    
+    .flash{
+        margin:1rem;
+    }
 {% endstylesheet %}
 
 {% javascript %}
-    
 {% endjavascript %}
