@@ -53,6 +53,13 @@
           "enable_language_selector": true,
           "payment_enable": true
         }
+      },
+      "collection-flashsale-template": {
+        "type": "collection-flashsale-template",
+        "settings": {
+          "section_title": "Quick link",
+          "banner": "shopify:\/\/shop_images\/person-leans-back-on-stone-steps-outdoors.jpg"
+        }
       }
     },
     "content_for_index": [
